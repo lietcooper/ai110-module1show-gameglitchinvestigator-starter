@@ -6,7 +6,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
-  (for example: "the secret number kept changing" or "the hints were backwards").
+  1. Pressing Enter does not apply the input.
+  2. The number range of different difficulty level in the info section does not correspond with that in the side bar, so does the secrete number.
+  3. When guessing a number, the number is not shown in the developer debug info history immediately after click submit, but only shown at nect click.
+  4. The hints for guessing is converse – if the user inputs a lower number, it prompts the user to go hihger, and vice versa.
+  5. The New Game button does not really refresh and starts a new game. All previous record persists.
 
 ---
 
