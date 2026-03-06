@@ -31,7 +31,7 @@ if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 1
+    st.session_state.attempts = 0
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -40,6 +40,17 @@ if "status" not in st.session_state:
     st.session_state.status = "playing"
 
 if "history" not in st.session_state:
+    st.session_state.history = []
+
+if "difficulty" not in st.session_state:
+    st.session_state.difficulty = difficulty
+
+if st.session_state.difficulty != difficulty:
+    st.session_state.difficulty = difficulty
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.attempts = 0
+    st.session_state.score = 0
+    st.session_state.status = "playing"
     st.session_state.history = []
 
 st.subheader("Make a guess")
@@ -66,7 +77,7 @@ new_game = st.button("New Game 🔁")
 
 # Bug 5 fix: reset all session state on new game, use difficulty range
 if new_game:
-    st.session_state.attempts = 1
+    st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
     st.session_state.history = []
@@ -82,14 +93,12 @@ if st.session_state.status != "playing":
     st.stop()
 
 if submit:
-    st.session_state.attempts += 1
-
-    ok, guess_int, err = parse_guess(raw_guess)
+    ok, guess_int, err = parse_guess(raw_guess, low, high)
 
     if not ok:
-        st.session_state.history.append(raw_guess)
         st.error(err)
     else:
+        st.session_state.attempts += 1
         st.session_state.history.append(guess_int)
 
         # Bug 4 fix: always pass int secret (no str() conversion)
