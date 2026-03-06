@@ -25,14 +25,24 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] Describe the game's purpose.
+   
+   This is a guessing game, allowing users to make guess of a secret numebr within a certain numebr of attemps and given ranges.
+- [x] Detail which bugs you found.
+  1. Pressing Enter does not apply the input.
+  2. The number range of different difficulty level in the info section does not correspond with that in the side bar, so does the secrete number.
+  3. When guessing a number, the number is not shown in the developer debug info history immediately after click submit, but only shown at nect click.
+  4. The hints for guessing is converse – if the user inputs a lower number, it prompts the user to go hihger, and vice versa.
+  5. The New Game button does not really refresh and starts a new game. All previous record persists.
+- [x] Explain what fixes you applied.
+   
+   - fixed all of them.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [x] [Insert a screenshot of your fixed, winning game here]
+![alt text](image.png)
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- [x] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
